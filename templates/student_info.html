@@ -5,7 +5,13 @@
 </head>
 <body>
 <h1>{{ first }} {{ last }}</h1>
-
 <p>GitHub Account: {{ github }}</p>
+{% if projects %}
+ <ul>
+    {% for item in projects %}
+        <li> {{item[0]}}, {{item[1]}}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
 </body>
 </html>
