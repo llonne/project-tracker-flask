@@ -25,6 +25,26 @@ def get_student():
     # github = "jhacks"
     # first, last, github = hackbright.get_student_by_github(github)
     # return "%s is the GitHub account for %s %s" % (github, first, last)
+@app.route("/project")
+def get_student():
+    """Show information about a student."""
+
+    title = request.args.get('title', 'Markov')
+    #print github
+    title, description, max_grade = hackbright.get_project_by_title(github)
+    #projects = hackbright.get_grades_by_github(github)
+    #print projects
+    html = render_template("project_info.html",
+                            title=title,
+                            description=description,
+                            max_grade=max_grade
+                            # first = first,
+                            # last = last,
+                            # github = github,
+                            # projects=projects
+                            )
+
+    return html
 
 @app.route("/student-search")
 def get_student_form():
